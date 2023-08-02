@@ -41,7 +41,7 @@ jobs:
       run: |
         ls app/build/outputs/apk/release
 
-    - uses: r0adkll/sign-android-release@v1
+    - uses: r0adkll/sign-android-release@v1.0.4
       name: Sign app APK
       id: sign_apks
       with:
