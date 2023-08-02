@@ -19,7 +19,7 @@ public class DashboardActivity extends BaseActivity {
 
         String linkController = TermUtil.getLinkController();
         if (linkController.startsWith(":")) {
-            linkController = "0.0.0.0" + linkController;
+            linkController = "yacd-meta-black-prisky.vercel.app" + linkController;
         }
         binding.wb.loadUrl("http://" + linkController + "/ui/#/proxies");
         WebSettings ws = binding.wb.getSettings();
