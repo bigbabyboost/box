@@ -41,16 +41,17 @@ jobs:
       run: |
         ls app/build/outputs/apk/release
 
-    - uses: r0adkll/sign-android-release@v1.0.4
+    - uses: ilharp/sign-android-release@v1 # Or use @nightly
       name: Sign app APK
-      id: sign_apks
+      id: sign_app
       with:
-        releaseDirectory: app/build/outputs/apk/release
-        alias: key.alias
-        keyPassword: ${{ secrets.KEY_PASSWORD }}
-        signingKeyBase64: ${{ secrets.KEYSTORE_CONTENT }}
-        keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
-
+        releaseDir: app/build/outputs/apk/release
+        signingKey: ${{ secrets.ANDROID_SIGNING_KEY }}
+        keyAlias: ${{ secrets.ANDROID_KEY_ALIAS }}
+        keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        buildToolsVersion: 33.0.0
+        
     - name: Rename Apks
       run: |
         mkdir -p APKs
